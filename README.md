@@ -165,6 +165,10 @@ You can find the full example used in the Nes-Todo-Api repository
 
 ## Changelog
 
+v 0.0.3:
+
+- Adds missing type declaration
+
 v 0.0.2:
 
 - Fixes event handler decorator
