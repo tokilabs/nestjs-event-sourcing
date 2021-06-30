@@ -1,5 +1,5 @@
 {
-	"name": "@tokilabs/nestjs-eventsourcing",
+	"name": "@tokilabs/nes",
 	"version": "0.0.1",
 	"description": "Event sourcing module for Nest framework (node.js)",
 	"license": "MIT",
@@ -15,7 +15,7 @@
 	],
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/tokilabs/nestjs-eventsourcing"
+		"url": "https://github.com/tokilabs/nes"
 	},
 	"scripts": {
 		"test": "jest",
