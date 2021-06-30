@@ -163,6 +163,16 @@ export class TodoWasCreatedProjection
 
 You can find the full example used in the Nes-Todo-Api repository
 
+## Changelog
+
+v 0.0.2:
+
+- Fixes event handler decorator
+
+v 0.0.1:
+
+- Initial Version
+
 ## What does the future holds for NES?
 
 For the version 1.0.0 of NES, I would like to:
