@@ -10,8 +10,8 @@ import { IEvent, Constants } from "../index";
  *
  * @see https://docs.nestjs.com/recipes/cqrs#events
  */
-export const EventHandler(...events: IEvent[]): ClassDecorator {
+export const EventHandler = (...events: IEvent[]): ClassDecorator => {
 	return (target: object) => {
 		Reflect.defineMetadata(Constants.EventHandlerMetadata, events, target);
 	};
-}
+};
