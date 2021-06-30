@@ -1,0 +1,14 @@
+# source
+src
+index.ts
+package-lock.json
+yarn.lock
+tslint.json
+tsconfig.json
+
+# misc
+.commitlintrc.json
+.release-it.json
+.eslintignore
+.eslintrc.js
+.prettierrc
