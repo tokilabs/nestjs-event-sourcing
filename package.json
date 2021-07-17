@@ -1,6 +1,6 @@
 {
 	"name": "@tokilabs/nestjs-event-sourcing",
-	"version": "0.0.3",
+	"version": "0.0.4",
 	"description": "Event sourcing module for Nest framework (node.js)",
 	"license": "MIT",
 	"contributors": [
