@@ -1,5 +1,5 @@
 import { IEvent } from "./event.interface";
-import { Inject, Injectable, Type } from "@nestjs/common";
+import { Injectable, Type } from "@nestjs/common";
 
 import {
 	AggregateRoot,
@@ -8,14 +8,12 @@ import {
 	NanoGuidIdentity,
 } from "../domain/";
 import { EventBus, IEventStore } from "./";
-import { IMessageBus, IMessageTransport, MessageBus } from "../messaging";
-import { Constants } from "../symbols";
 
 const debug = require("debug")("nes:events:repository");
 
 @Injectable()
 export abstract class EventStoreRepository<
-	TAggregate extends AggregateRoot,
+	TAggregate extends AggregateRoot<TId>,
 	TId extends Identity<any> = NanoGuidIdentity
 > implements IRepository<TAggregate, TId>
 {
