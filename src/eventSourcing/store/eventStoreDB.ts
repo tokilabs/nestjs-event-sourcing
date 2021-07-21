@@ -113,18 +113,20 @@ export class EventStoreDB implements IEventStore {
 
 		debug(`Saving events to stream ${streamName}`);
 
-		return this.withConn((connection) =>
-			Promise.all(
-				eventsData.map((event) => {
-					return connection
-						.appendToStream(streamName, expectedVersion, event)
-						.then((result) => {
-							expectedVersion = result.nextExpectedVersion;
+		let nextVersion = expectedVersion;
 
-							return result;
+		return this.withConn<EventStoreClient.WriteResult[]>((connection) =>
+			eventsData.reduce((agg, event) => {
+				return agg.then((results) => {
+					return connection
+						.appendToStream(streamName, nextVersion, event)
+						.then((result) => {
+							nextVersion = result.nextExpectedVersion;
+
+							return results.push(result);
 						});
-				})
-			)
+				});
+			}, Promise.resolve([]))
 		);
 	}
 
