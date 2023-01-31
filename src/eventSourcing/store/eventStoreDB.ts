@@ -115,18 +115,23 @@ export class EventStoreDB implements IEventStore {
 
 		let nextVersion = expectedVersion;
 
-		return this.withConn<EventStoreClient.WriteResult[]>((connection) =>
-			eventsData.reduce((agg, event) => {
-				return agg.then((results) => {
-					return connection
-						.appendToStream(streamName, nextVersion, event)
-						.then((result) => {
-							nextVersion = result.nextExpectedVersion;
-
-							return results.push(result);
-						});
-				});
-			}, Promise.resolve([]))
+		return this.withConn<EventStoreClient.WriteResult[]>(
+			(connection): Promise<EventStoreClient.WriteResult[]> =>
+				eventsData.reduce(async (agg, event): Promise<
+					EventStoreClient.WriteResult[]
+				> => {
+					return agg.then(async (results): Promise<
+						EventStoreClient.WriteResult[]
+					> => {
+						return await connection
+							.appendToStream(streamName, nextVersion, event)
+							.then((result): EventStoreClient.WriteResult[] => {
+								nextVersion = result.nextExpectedVersion;
+								results.push(result);
+								return results;
+							});
+					});
+				}, Promise.resolve([]))
 		);
 	}
 
