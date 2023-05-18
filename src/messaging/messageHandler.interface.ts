@@ -1,5 +1,4 @@
-import { IMessage } from "./";
-import { IMessageResponse } from "./messageResponse.interface";
+import { IMessage, IMessageResponse } from "./message";
 
 export interface IMessageHandler<
 	MessageType extends IMessage = IMessage,
