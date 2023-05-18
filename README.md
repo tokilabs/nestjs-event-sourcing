@@ -2,7 +2,7 @@
 
 Event sourcing module for NestJS
 
-## How to use NES:
+## How to use NES
 
 - In your AppModule or BootstrapModule, import the EventSourcingModule from `@tokilabs/nestjs-eventsourcing` and configure the module:
 
@@ -159,11 +159,15 @@ export class TodoWasCreatedProjection
 }
 ```
 
-## Example:
+## Example
 
 You can find the full example used in the Nes-Todo-Api repository
 
 ## Changelog
+
+v 0.0.5:
+
+- Removes abstract modifier from EventStoreRepository class, to reduce the amount of boilerplate required.
 
 v 0.0.4:
 
