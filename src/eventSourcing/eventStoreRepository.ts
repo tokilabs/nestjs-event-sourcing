@@ -12,7 +12,7 @@ import { EventBus, IEventStore } from "./";
 const debug = require("debug")("nes:events:repository");
 
 @Injectable()
-export abstract class EventStoreRepository<
+export class EventStoreRepository<
 	TAggregate extends AggregateRoot<TId>,
 	TId extends Identity<any> = NanoGuidIdentity
 > implements IRepository<TAggregate, TId>
