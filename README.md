@@ -168,6 +168,7 @@ You can find the full example used in the Nes-Todo-Api repository
 v 0.0.5:
 
 - Removes abstract modifier from EventStoreRepository class, to reduce the amount of boilerplate required.
+  and updates Class-validator version due to security reasons
 
 v 0.0.4:
 
